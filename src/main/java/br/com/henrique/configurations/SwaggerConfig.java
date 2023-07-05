@@ -11,7 +11,7 @@ import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import io.swagger.v3.oas.annotations.security.SecuritySchemes;
 
 @Configuration
-@OpenAPIDefinition(info = @Info(title = "animes-API", version = "1.0",
+@OpenAPIDefinition(info = @Info(title = "ANIMES-API", version = "1.0",
         contact = @Contact(name = "Carlos Henrique")),
         security = {@SecurityRequirement(name = "bearerToken")}
 )
