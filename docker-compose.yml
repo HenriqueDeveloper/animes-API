@@ -1,0 +1,23 @@
+version: '3.4'
+services:
+  db:
+    image: postgres:15.3
+    volumes:
+      - db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+  animes-api:
+    build: .
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+      - SECURITY_JWT_EXPIRACAO=30
+      - SECURITY_JWT_CHAVE_ASSINATURA=f1e067cd5ddc31a39a1411f82521a0f56a97291804190cccb8c7b2f0d1d91c6b9a84c76c5219eae9a49ce0678270760e94247ff4a3a5f1a7c717f9ef3a49f17a
+    depends_on:
+      - db
+    ports:
+      - 8080:8080
+volumes: 
+  db:
